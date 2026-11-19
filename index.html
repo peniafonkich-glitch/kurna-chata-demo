@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kurna Chata | polska kuchnia we Wrocławiu, Odrzańska 24</title>
+<meta name="description" content="Makieta strony Restauracji Kurna Chata: polska kuchnia w przyzwoitych cenach, schabowy 180 g lub 300 g, drewniane wnętrze przy Odrzańskiej 24-29 we Wrocławiu. Otwarte codziennie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;0,900;1,500&family=Alegreya+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+/* Kurna Chata: ludowy klimat z ich okładki (chata, kogut). Nowy szkielet: rysowana chata w hero z dymem z komina
+   i kogutem, pasek "wycinanki", wybór rozmiaru schabowego (talerz rośnie), drewniane wnętrze z migoczącymi świecami,
+   odwiedziny z mapą. Cała strona po polsku i angielsku (przełącznik PL/EN), bo posty i goście są dwujęzyczni. */
+:root{
+  --red:#b3261e;
+  --red2:#e0473b;
+  --wood:#4a2f1c;
+  --wood2:#6b4429;
+  --green:#2f6b3a;
+  --ochre:#e8a628;
+  --white:#ffffff;
+  --sky:#e7f1f7;
+  --gut:clamp(18px,5vw,64px);
+  --hd:'Alegreya',Georgia,serif;
+  --bd:'Alegreya Sans','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--sky);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--bd);font-size:18px;line-height:1.55;color:var(--wood);background:var(--sky);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--hd);font-weight:900;line-height:1}
+[data-en]{display:none}
+html[lang=en] [data-pl]{display:none}
+html[lang=en] [data-en]{display:revert}
+
+/* pasek */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px var(--gut);background:var(--red);color:var(--white)}
+.top .logo{font:900 22px var(--hd);text-decoration:none}
+.top nav{display:flex;gap:18px;font-weight:700;font-size:15px}
+.top nav a{text-decoration:none}
+@media(max-width:700px){.top nav{display:none}}
+.lang{display:flex;border:2px solid var(--white);border-radius:999px;overflow:hidden}
+.lang button{font:800 13px var(--bd);padding:6px 12px;border:0;background:transparent;color:var(--white);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--white);color:var(--red)}
+
+/* HERO: rysowana chata */
+.hero{position:relative;overflow:hidden;background:linear-gradient(var(--sky),#d6e9f2 70%);padding:clamp(24px,5vh,50px) var(--gut) 0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;align-items:end;max-width:1180px;margin:0 auto}
+.kick{font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+h1{font-size:clamp(60px,10vw,140px);color:var(--wood);margin-top:8px}
+.lede{font-size:clamp(19px,1.8vw,23px);max-width:28ch;margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{padding:7px 14px;border-radius:999px;background:var(--white);font-weight:700;font-size:15px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 clamp(30px,6vh,60px)}
+.btn{display:inline-flex;align-items:center;min-height:54px;padding:0 24px;border-radius:12px;border:3px solid var(--wood);font-weight:800;text-decoration:none;background:var(--white);box-shadow:4px 4px 0 var(--wood);transition:transform .15s,box-shadow .15s}
+.btn.f{background:var(--red);border-color:var(--wood);color:var(--white)}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--wood)}
+.scene{width:100%;max-width:640px;justify-self:center;display:block}
+.smoke circle{fill:#fff;opacity:0;animation:smoke 5s ease-out infinite}
+.smoke circle:nth-child(2){animation-delay:1.6s}.smoke circle:nth-child(3){animation-delay:3.2s}
+@keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.85}100%{opacity:0;transform:translate(-40px,-120px) scale(1.6)}}
+.smoke circle{transform-box:fill-box;transform-origin:center}
+.rooster{animation:peck 3.2s ease-in-out infinite;transform-origin:430px 330px}
+@keyframes peck{0%,70%,100%{transform:rotate(0)}78%{transform:rotate(18deg)}86%{transform:rotate(0)}92%{transform:rotate(14deg)}}
+.win{animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{from{fill:#f6c453}to{fill:#ffdf8a}}
+
+/* wycinanka */
+.folk{height:46px;background:
+  radial-gradient(circle at 23px 23px,var(--red) 0 9px,transparent 10px) 0 0/46px 46px,
+  conic-gradient(from 45deg at 23px 23px,var(--green) 0 25%,transparent 0 50%,var(--green) 0 75%,transparent 0) 0 0/46px 46px,var(--white);
+  border-top:4px solid var(--wood);border-bottom:4px solid var(--wood);animation:slide 18s linear infinite}
+@keyframes slide{to{background-position:460px 0,460px 0,0 0}}
+
+/* SCHABOWY */
+.sec{padding:clamp(60px,10vh,110px) var(--gut)}
+.wrap2{max-width:1180px;margin:0 auto}
+.sec h2{font-size:clamp(40px,6vw,80px)}
+.cut{background:var(--white)}
+.cut .wrap2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
+@media(max-width:860px){.cut .wrap2,.hero .wrap{grid-template-columns:1fr}}
+.cut p.intro{margin-top:14px;max-width:40ch}
+.size{display:flex;gap:10px;margin-top:22px}
+.size button{font:900 24px var(--hd);min-width:120px;min-height:64px;border-radius:14px;border:3px solid var(--wood);background:var(--white);color:var(--wood);cursor:pointer;box-shadow:4px 4px 0 var(--wood)}
+.size button[aria-pressed=true]{background:var(--ochre)}
+.with{list-style:none;margin-top:22px;display:grid;gap:8px}
+.with li{display:flex;gap:10px;align-items:center;font-weight:700}
+.with li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--green)}
+.plate{position:relative;width:min(440px,90%);aspect-ratio:1;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#eef2f5 59% 62%,#fff 63% 70%,#dfe6eb 71%);box-shadow:0 20px 40px rgba(74,47,28,.18)}
+.plate .pork{position:absolute;left:18%;top:20%;width:46%;height:38%;border-radius:46% 54% 50% 50%/56% 48% 52% 44%;
+  background:radial-gradient(circle at 30% 30%,#e9a44c 0 8%,transparent 9%),radial-gradient(circle at 60% 55%,#d98a35 0 7%,transparent 8%),radial-gradient(circle at 45% 70%,#e2983f 0 6%,transparent 7%),linear-gradient(140deg,#e7a54d,#b8661f);
+  box-shadow:inset -6px -8px 0 rgba(120,60,10,.25);transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.plate.big .pork{transform:scale(1.32) translate(4%,6%)}
+.plate .puree{position:absolute;right:16%;top:24%;width:26%;height:24%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fffbe8,#f3e3a6);box-shadow:inset -4px -5px 0 rgba(0,0,0,.06)}
+.plate .kap{position:absolute;left:30%;bottom:16%;width:30%;height:18%;border-radius:50%;background:repeating-linear-gradient(115deg,#c9a24a 0 4px,#b48a32 4px 7px)}
+.plate .sal{position:absolute;right:20%;bottom:20%;width:22%;height:18%;border-radius:50%;background:repeating-linear-gradient(60deg,#c43b2f 0 5px,#6fae5a 5px 10px,#f2e7c3 10px 13px)}
+.plate .g{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%);font:900 28px var(--hd);color:var(--red)}
+.plate small{position:absolute;left:0;right:0;bottom:-66px;text-align:center;font-size:13px;opacity:.7}
+
+/* WNĘTRZE */
+.inside{background:var(--wood);color:var(--white);position:relative;overflow:hidden}
+.inside::before{content:"";position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(90deg,transparent 0 120px,rgba(0,0,0,.6) 120px 124px),repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 3px,transparent 3px 9px)}
+.inside .wrap2{position:relative}
+.inside .kick{color:var(--ochre)}
+.inside .intro{max-width:56ch;margin-top:14px;opacity:.92}
+.candles{display:flex;gap:clamp(18px,4vw,50px);margin-top:36px;align-items:flex-end}
+.candle{position:relative;width:34px;border-radius:6px 6px 2px 2px;background:linear-gradient(90deg,#f4ead7,#e2d3b5)}
+.candle::before{content:"";position:absolute;left:50%;top:-30px;width:16px;height:26px;margin-left:-8px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6c9,#ffb43a 55%,rgba(255,120,0,0) 70%);animation:flick 1.4s ease-in-out infinite alternate;transform-origin:50% 100%}
+.candle::after{content:"";position:absolute;left:50%;top:-90px;width:140px;height:140px;margin-left:-70px;border-radius:50%;background:radial-gradient(circle,rgba(255,190,90,.35),transparent 65%);animation:flick 1.4s ease-in-out infinite alternate}
+.candle:nth-child(2)::before,.candle:nth-child(2)::after{animation-delay:.4s}.candle:nth-child(3)::before,.candle:nth-child(3)::after{animation-delay:.8s}
+@keyframes flick{from{transform:scale(1) rotate(-3deg);opacity:.9}to{transform:scale(1.12) rotate(3deg);opacity:1}}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
+@media(max-width:760px){.feat{grid-template-columns:1fr}}
+.feat div{padding:20px;border:2px solid rgba(255,255,255,.25);border-radius:14px}
+.feat b{display:block;font:900 24px var(--hd);color:var(--ochre)}
+.ph{margin-top:14px;padding:14px;border:2px dashed rgba(255,255,255,.4);border-radius:12px;text-align:center;font-weight:700;font-size:14px}
+
+/* ODWIEDŹ */
+.visit .wrap2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(30px,6vw,80px)}
+@media(max-width:860px){.visit .wrap2{grid-template-columns:1fr}}
+dl{display:grid;grid-template-columns:auto 1fr;gap:12px 22px;margin-top:24px}
+dt{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);padding-top:3px}
+dd{font-size:19px}
+.mapbox{border:4px solid var(--wood);border-radius:16px;overflow:hidden;box-shadow:6px 6px 0 var(--wood);min-height:380px}
+.mapbox iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
+footer{background:var(--red);color:rgba(255,255,255,.88);padding:24px var(--gut) 40px}
+footer p{max-width:90ch;font-size:13px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.smoke circle,.rooster,.win,.folk,.candle::before,.candle::after{animation:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#start">Kurna Chata</a>
+  <nav aria-label="Menu"><a href="#schabowy">Schabowy</a><a href="#wnetrze"><span data-pl>Wnętrze</span><span data-en>Interior</span></a><a href="#odwiedz"><span data-pl>Odwiedź</span><span data-en>Visit</span></a></nav>
+  <div class="lang" role="group" aria-label="Język / Language"><button type="button" data-l="pl" aria-pressed="true">PL</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</header>
+
+<section class="hero" id="start">
+  <div class="wrap">
+    <div>
+      <div class="kick"><span data-pl>Restauracja · Wrocław, Stare Miasto</span><span data-en>Restaurant · Wrocław Old Town</span></div>
+      <h1>Kurna Chata</h1>
+      <p class="lede"><span data-pl>Polska kuchnia, w której można zjeść smacznie i w przyzwoitych cenach.</span><span data-en>Polish cuisine: tasty food at fair prices, in the heart of Wrocław.</span></p>
+      <div class="chips"><span data-pl>otwarte codziennie</span><span data-en>open daily</span><span data-pl>na miejscu i na wynos</span><span data-en>dine in and takeaway</span><span data-pl>rezerwacje</span><span data-en>reservations</span></div>
+      <div class="ctas"><a class="btn f" href="tel:+48731076569"><span data-pl>Zarezerwuj stolik</span><span data-en>Book a table</span></a><a class="btn" href="#schabowy"><span data-pl>Co zjeść</span><span data-en>What to eat</span></a></div>
+    </div>
+    <svg class="scene" viewBox="0 0 640 420" role="img" aria-label="Rysunek: drewniana chata z dymiącym kominem i kogut">
+      <ellipse cx="320" cy="410" rx="330" ry="40" fill="#7bb26b"/>
+      <g class="smoke"><circle cx="400" cy="70" r="14"/><circle cx="400" cy="70" r="12"/><circle cx="400" cy="70" r="16"/></g>
+      <rect x="388" y="70" width="26" height="70" fill="#8a5a3a"/>
+      <path d="M150 210 L320 80 L490 210 Z" fill="#c9a24a" stroke="#4a2f1c" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M190 190 L320 95 L450 190" fill="none" stroke="#b48a32" stroke-width="4"/>
+      <rect x="175" y="205" width="290" height="175" fill="#8a5a3a" stroke="#4a2f1c" stroke-width="6"/>
+      <g stroke="#6b4429" stroke-width="3"><path d="M175 235H465M175 265H465M175 295H465M175 325H465M175 355H465"/></g>
+      <rect x="290" y="270" width="60" height="110" rx="4" fill="#4a2f1c"/>
+      <circle cx="338" cy="328" r="4" fill="#e8a628"/>
+      <rect class="win" x="205" y="250" width="60" height="50" rx="4" fill="#f6c453" stroke="#4a2f1c" stroke-width="5"/>
+      <rect class="win" x="375" y="250" width="60" height="50" rx="4" fill="#f6c453" stroke="#4a2f1c" stroke-width="5"/>
+      <path d="M235 250V300M205 275H265M405 250V300M375 275H435" stroke="#4a2f1c" stroke-width="4"/>
+      <g class="rooster">
+        <path d="M470 380 q-10-40 20-60 q30-10 40 20 q5 25-20 40 z" fill="#b3261e" stroke="#4a2f1c" stroke-width="4"/>
+        <path d="M465 370 q-35-20-30-55 q20 10 30 40" fill="#2f6b3a" stroke="#4a2f1c" stroke-width="4"/>
+        <circle cx="508" cy="318" r="14" fill="#e8a628" stroke="#4a2f1c" stroke-width="4"/>
+        <path d="M500 304 q6-14 14-2 q6-10 12 4" fill="#e0473b" stroke="#4a2f1c" stroke-width="3"/>
+        <path d="M520 318 l14 4 l-14 4z" fill="#e8a628" stroke="#4a2f1c" stroke-width="3"/>
+        <circle cx="512" cy="315" r="2.5" fill="#4a2f1c"/>
+        <path d="M488 400 v-20 M500 400 v-20" stroke="#4a2f1c" stroke-width="4"/>
+      </g>
+    </svg>
+  </div>
+</section>
+<div class="folk" aria-hidden="true"></div>
+
+<main>
+<section class="sec cut" id="schabowy">
+  <div class="wrap2">
+    <div class="rv">
+      <div class="kick"><span data-pl>Na mały i duży głód</span><span data-en>For any appetite</span></div>
+      <h2><span data-pl>Schabowy w dwóch rozmiarach</span><span data-en>Pork chop, two sizes</span></h2>
+      <p class="intro"><span data-pl>Klasyczny, wyśmienity schabowy. Wybierz rozmiar:</span><span data-en>Our classic Polish pork chop. Pick your size:</span></p>
+      <div class="size" role="group" aria-label="Rozmiar / Size"><button type="button" data-g="180" aria-pressed="true">180 g</button><button type="button" data-g="300" aria-pressed="false">300 g</button></div>
+      <ul class="with">
+        <li><span data-pl>puszyste puree ziemniaczane</span><span data-en>creamy mashed potatoes</span></li>
+        <li><span data-pl>zestaw świeżych surówek</span><span data-en>fresh salads</span></li>
+        <li><span data-pl>domowa kapusta zasmażana</span><span data-en>warm braised sauerkraut</span></li>
+      </ul>
+    </div>
+    <div class="plate rv" id="plate" aria-hidden="true"><span class="pork"></span><span class="puree"></span><span class="kap"></span><span class="sal"></span><span class="g" id="g">180 g</span><small><span data-pl>Rysunek. Tu będzie zdjęcie Państwa schabowego.</span><span data-en>Illustration. Your dish photo goes here.</span></small></div>
+  </div>
+</section>
+
+<section class="sec inside" id="wnetrze">
+  <div class="wrap2 rv">
+    <div class="kick"><span data-pl>Wnętrze</span><span data-en>Interior</span></div>
+    <h2><span data-pl>Domowe ciepło od progu</span><span data-en>Homely warmth from the door</span></h2>
+    <p class="intro"><span data-pl>Solidne drewniane meble, blask świec i drewniane rzeźby z duszą. Prawdziwa polska gościnność w sercu Wrocławia.</span><span data-en>Solid wooden furniture, warm candlelight and wooden sculptures full of character. Authentic Polish hospitality in the heart of Wrocław.</span></p>
+    <div class="candles" aria-hidden="true"><span class="candle" style="height:90px"></span><span class="candle" style="height:130px"></span><span class="candle" style="height:70px"></span></div>
+    <div class="feat">
+      <div><b><span data-pl>Drewno</span><span data-en>Wood</span></b><span data-pl>solidne drewniane meble</span><span data-en>solid wooden furniture</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie sali</span><span data-en>Your photo goes here</span></div></div>
+      <div><b><span data-pl>Świece</span><span data-en>Candles</span></b><span data-pl>wieczorem w blasku świec</span><span data-en>evenings by candlelight</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie wieczoru</span><span data-en>Your photo goes here</span></div></div>
+      <div><b><span data-pl>Rzeźby</span><span data-en>Carvings</span></b><span data-pl>drewniane rzeźby z charakterem</span><span data-en>wooden carvings with character</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie rzeźb</span><span data-en>Your photo goes here</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec visit" id="odwiedz">
+  <div class="wrap2">
+    <div class="rv">
+      <div class="kick"><span data-pl>Zapraszamy codziennie</span><span data-en>Open daily</span></div>
+      <h2><span data-pl>Odrzańska 24</span><span data-en>Odrzańska 24</span></h2>
+      <dl>
+        <dt><span data-pl>Adres</span><span data-en>Address</span></dt><dd>Odrzańska 24-29<br>50-114 Wrocław</dd>
+        <dt><span data-pl>Rezerwacje</span><span data-en>Bookings</span></dt><dd><a href="tel:+48731076569">+48 731 076 569</a></dd>
+        <dt>E-mail</dt><dd><a href="mailto:krol.schabowego@gmail.com">krol.schabowego@gmail.com</a></dd>
+        <dt>Social</dt><dd><a href="https://www.facebook.com/KurnaChataWroclaw" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/kurna_chata_wro/" rel="noopener">Instagram</a></dd>
+      </dl>
+      <div class="ctas" style="margin-bottom:0"><a class="btn f" href="tel:+48731076569"><span data-pl>Zadzwoń i zarezerwuj</span><span data-en>Call to book</span></a></div>
+    </div>
+    <div class="mapbox rv"><iframe title="Mapa: Kurna Chata, Odrzańska 24, Wrocław" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=17.0230%2C51.1090%2C17.0395%2C51.1160&amp;layer=mapnik&amp;marker=51.1125265%2C17.0313081"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p data-pl>To makieta nowej strony. Rysunki chaty i talerza są poglądowe, w ich miejscu pojawią się prawdziwe zdjęcia dań i wnętrza, za zgodą właścicieli. Opis, schabowy, wnętrze, adres i kontakt pochodzą z facebookowej strony Kurna Chata.</p>
+  <p data-en>This is a demo of a new website. The drawings are placeholders for real photos of the dishes and interior, with the owners' consent. Descriptions, the pork chop, interior, address and contacts come from the Kurna Chata Facebook page.</p>
+</footer>
+
+<script>
+(function(){
+/* PL / EN */
+var bs=document.querySelectorAll('.lang button');
+function setL(l){document.documentElement.lang=l;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});try{localStorage.setItem('kc-lang',l)}catch(e){}}
+bs.forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
+try{var s=localStorage.getItem('kc-lang');if(s)setL(s)}catch(e){}
+/* rozmiar schabowego */
+var plate=document.getElementById('plate'),g=document.getElementById('g'),sz=document.querySelectorAll('.size button');
+sz.forEach(function(b){b.onclick=function(){sz.forEach(function(x){x.setAttribute('aria-pressed',x===b)});plate.classList.toggle('big',b.dataset.g==='300');g.textContent=b.dataset.g+' g'}});
+var els=document.querySelectorAll('.rv');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)});
+})();
+</script>
+<script data-goatcounter="https://penia-demo.goatcounter.com/count" data-goatcounter-settings='{"path":"kurna-chata"}' async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
