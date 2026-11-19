@@ -4,247 +4,497 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3b2416">
 <title>Kurna Chata | polska kuchnia we Wrocławiu, Odrzańska 24</title>
-<meta name="description" content="Makieta strony Restauracji Kurna Chata: polska kuchnia w przyzwoitych cenach, schabowy 180 g lub 300 g, drewniane wnętrze przy Odrzańskiej 24-29 we Wrocławiu. Otwarte codziennie.">
+<meta name="description" content="Makieta strony Restauracji Kurna Chata: menu ze zdjęciami i cenami, rezerwacja stolika online, polska kuchnia przy Odrzańskiej 24-29 we Wrocławiu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;0,900;1,500&family=Alegreya+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-/* Kurna Chata: ludowy klimat z ich okładki (chata, kogut). Nowy szkielet: rysowana chata w hero z dymem z komina
-   i kogutem, pasek "wycinanki", wybór rozmiaru schabowego (talerz rośnie), drewniane wnętrze z migoczącymi świecami,
-   odwiedziny z mapą. Cała strona po polsku i angielsku (przełącznik PL/EN), bo posty i goście są dwujęzyczni. */
+/* Kurna Chata: bielona chata malowana w kwiaty jak w Zalipiu + rzeźbiony szyld z ich logo.
+   Szkielet: belka z szyldem, hero ze zdjęciem schabowego w malowanym wianku, pasek szybkiej rezerwacji,
+   menu w zakładkach ze zdjęciami i cenami, formularz rezerwacji na niebieskim "modraku" z wyborem lokalu (3 miasta),
+   wnętrze, dojazd z godzinami. */
 :root{
-  --red:#b3261e;
-  --red2:#e0473b;
-  --wood:#4a2f1c;
-  --wood2:#6b4429;
-  --green:#2f6b3a;
-  --ochre:#e8a628;
+  --wall:#f3f7fb;      /* bielona ściana, chłodna */
   --white:#ffffff;
-  --sky:#e7f1f7;
-  --gut:clamp(18px,5vw,64px);
-  --hd:'Alegreya',Georgia,serif;
-  --bd:'Alegreya Sans','Helvetica Neue',Arial,sans-serif;
+  --blue:#2c5aa0;      /* modrak z Zalipia */
+  --blue2:#1f4580;
+  --red:#c8322b;
+  --green:#3a8a4a;
+  --yellow:#f3b21c;
+  --wood:#3b2416;
+  --wood2:#5a3a24;
+  --ink:#1d2836;
+  --mute:#566476;
+  --gut:clamp(16px,5vw,64px);
+  --hd:'Alfa Slab One',Rockwell,serif;
+  --bd:'Figtree','Helvetica Neue',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:var(--sky);scroll-behavior:smooth}
+html{background:var(--wall);scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{font-family:var(--bd);font-size:18px;line-height:1.55;color:var(--wood);background:var(--sky);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--bd);font-size:17px;line-height:1.55;color:var(--ink);background:var(--wall);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit;text-underline-offset:4px}
-:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:6px}
-h1,h2,h3{font-family:var(--hd);font-weight:900;line-height:1}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--hd);font-weight:400;line-height:1.02;letter-spacing:.005em}
 [data-en]{display:none}
 html[lang=en] [data-pl]{display:none}
 html[lang=en] [data-en]{display:revert}
 
-/* pasek */
-.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px var(--gut);background:var(--red);color:var(--white)}
-.top .logo{font:900 22px var(--hd);text-decoration:none}
-.top nav{display:flex;gap:18px;font-weight:700;font-size:15px}
-.top nav a{text-decoration:none}
-@media(max-width:700px){.top nav{display:none}}
-.lang{display:flex;border:2px solid var(--white);border-radius:999px;overflow:hidden}
-.lang button{font:800 13px var(--bd);padding:6px 12px;border:0;background:transparent;color:var(--white);cursor:pointer}
-.lang button[aria-pressed=true]{background:var(--white);color:var(--red)}
+/* belka z szyldem */
+.beam{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px var(--gut);
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 7px),linear-gradient(#5a3a24,#3b2416 60%,#2e1b10);
+  box-shadow:0 3px 0 #22140b,0 8px 18px rgba(30,20,10,.25);color:#f6ead8}
+.sign{display:inline-block;padding:6px 16px 7px;border-radius:8px;text-decoration:none;font:400 22px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:#f6dfb6;
+  background:linear-gradient(#7a5233,#5b3b23);box-shadow:inset 0 2px 0 rgba(255,255,255,.15),inset 0 -3px 0 rgba(0,0,0,.35),0 2px 0 #1d1108;text-shadow:0 -1px 0 rgba(0,0,0,.6),0 1px 0 rgba(255,230,190,.25)}
+.beam nav{display:flex;gap:22px;font-weight:700;font-size:15px}
+.beam nav a{text-decoration:none;opacity:.88}
+.beam nav a:hover{opacity:1;text-decoration:underline}
+@media(max-width:820px){.beam nav{display:none}}
+.sign{white-space:nowrap}
+@media(max-width:420px){.sign{font-size:17px;padding:6px 11px}.bk{padding:0 12px;font-size:13px}.book .flo{width:200px;right:-70px;top:-50px;opacity:.6}}
+.right{display:flex;gap:10px;align-items:center}
+.bk{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--yellow);color:var(--wood);font-weight:800;font-size:14px;text-decoration:none}
+.lang{display:flex;border-radius:999px;background:rgba(0,0,0,.25);padding:3px}
+.lang button{font-weight:800;font-size:12px;padding:6px 10px;border:0;border-radius:999px;background:none;color:#f6ead8;cursor:pointer}
+.lang button[aria-pressed=true]{background:#f6ead8;color:var(--wood)}
 
-/* HERO: rysowana chata */
-.hero{position:relative;overflow:hidden;background:linear-gradient(var(--sky),#d6e9f2 70%);padding:clamp(24px,5vh,50px) var(--gut) 0}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;align-items:end;max-width:1180px;margin:0 auto}
-.kick{font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
-h1{font-size:clamp(60px,10vw,140px);color:var(--wood);margin-top:8px}
-.lede{font-size:clamp(19px,1.8vw,23px);max-width:28ch;margin-top:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chips span{padding:7px 14px;border-radius:999px;background:var(--white);font-weight:700;font-size:15px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 clamp(30px,6vh,60px)}
-.btn{display:inline-flex;align-items:center;min-height:54px;padding:0 24px;border-radius:12px;border:3px solid var(--wood);font-weight:800;text-decoration:none;background:var(--white);box-shadow:4px 4px 0 var(--wood);transition:transform .15s,box-shadow .15s}
-.btn.f{background:var(--red);border-color:var(--wood);color:var(--white)}
-.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--wood)}
-.scene{width:100%;max-width:640px;justify-self:center;display:block}
-.smoke circle{fill:#fff;opacity:0;animation:smoke 5s ease-out infinite}
-.smoke circle:nth-child(2){animation-delay:1.6s}.smoke circle:nth-child(3){animation-delay:3.2s}
-@keyframes smoke{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.85}100%{opacity:0;transform:translate(-40px,-120px) scale(1.6)}}
-.smoke circle{transform-box:fill-box;transform-origin:center}
-.rooster{animation:peck 3.2s ease-in-out infinite;transform-origin:430px 330px}
-@keyframes peck{0%,70%,100%{transform:rotate(0)}78%{transform:rotate(18deg)}86%{transform:rotate(0)}92%{transform:rotate(14deg)}}
-.win{animation:glow 3s ease-in-out infinite alternate}
-@keyframes glow{from{fill:#f6c453}to{fill:#ffdf8a}}
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(28px,6vh,64px) var(--gut) clamp(40px,7vh,80px)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center;max-width:1220px;margin:0 auto}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr}}
+.corner{position:absolute;width:clamp(150px,22vw,300px);pointer-events:none;z-index:0}
+.corner.tl{left:-120px;top:-90px;opacity:.9}
+@media(max-width:880px){.corner.tl{left:auto;right:-110px;top:-80px;transform:scaleX(-1)}}
+.corner.br{right:-30px;bottom:-30px;transform:scale(-1,-1)}
+.place{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:var(--blue);background:var(--white);border:2px solid var(--blue);border-radius:999px;padding:5px 14px}
+.place i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(58,138,74,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(58,138,74,0)}100%{box-shadow:0 0 0 0 rgba(58,138,74,0)}}
+h1{font-size:clamp(54px,8.6vw,118px);color:var(--wood);margin-top:16px}
+h1 span.w{display:inline-block;opacity:0;transform:translateY(40px) rotate(-4deg);animation:wd .9s cubic-bezier(.2,1.4,.4,1) forwards}
+h1 span.w:nth-child(2){animation-delay:.15s;color:var(--red)}
+@keyframes wd{to{opacity:1;transform:none}}
+.lede{font-size:clamp(18px,1.7vw,21px);max-width:34ch;margin-top:16px;color:#2c3a4c}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 24px;border-radius:999px;font-weight:800;text-decoration:none;border:2px solid var(--ink);background:var(--white);cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.r{background:var(--red);border-color:var(--red);color:#fff}
+.btn.r:hover{background:#a92820}
+.btn.y{background:var(--yellow);border-color:var(--yellow);color:var(--wood)}
+.stars{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;color:var(--mute)}
+.stars b{font:400 26px var(--hd);color:var(--ink)}
+.dish{position:relative;width:min(520px,100%);margin:0 auto;aspect-ratio:1}
+.dish .ph{position:absolute;inset:13%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px var(--white),0 0 0 13px var(--blue),0 30px 50px rgba(29,40,54,.25);opacity:0;transform:scale(.85);animation:pl 1.1s .3s cubic-bezier(.2,1.2,.4,1) forwards}
+@keyframes pl{to{opacity:1;transform:none}}
+.dish .ph img{width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.08)}}
+.dish svg.wreath{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.price-stamp{position:absolute;right:2%;top:10%;width:104px;height:104px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;line-height:1;transform:rotate(12deg) scale(0);animation:stamp .6s 1.5s cubic-bezier(.2,1.6,.4,1) forwards;box-shadow:0 0 0 4px var(--wall),0 0 0 6px var(--red)}
+.price-stamp b{font:400 30px var(--hd);display:block}
+.price-stamp small{font-size:11px;font-weight:800;letter-spacing:.06em}
+@keyframes stamp{to{transform:rotate(12deg) scale(1)}}
+.note{position:absolute;left:50%;bottom:0;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
 
-/* wycinanka */
-.folk{height:46px;background:
-  radial-gradient(circle at 23px 23px,var(--red) 0 9px,transparent 10px) 0 0/46px 46px,
-  conic-gradient(from 45deg at 23px 23px,var(--green) 0 25%,transparent 0 50%,var(--green) 0 75%,transparent 0) 0 0/46px 46px,var(--white);
-  border-top:4px solid var(--wood);border-bottom:4px solid var(--wood);animation:slide 18s linear infinite}
-@keyframes slide{to{background-position:460px 0,460px 0,0 0}}
+/* pasek szybkiej rezerwacji */
+.quick{position:relative;z-index:2;max-width:1220px;margin:0 auto clamp(-46px,-5vh,-30px);padding:0 var(--gut)}
+.quick form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:8px;background:var(--white);border:2px solid var(--ink);border-radius:20px;padding:10px;box-shadow:6px 6px 0 var(--ink)}
+@media(max-width:880px){.quick form{grid-template-columns:1fr 1fr}.quick form .btn{grid-column:1/-1}}
+.quick label{display:flex;flex-direction:column;padding:6px 12px;border-radius:12px;background:var(--wall);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.quick select,.quick input{border:0;background:none;font-size:16px;font-weight:700;color:var(--ink);text-transform:none;letter-spacing:0;padding:2px 0;width:100%;outline:none}
 
-/* SCHABOWY */
-.sec{padding:clamp(60px,10vh,110px) var(--gut)}
-.wrap2{max-width:1180px;margin:0 auto}
-.sec h2{font-size:clamp(40px,6vw,80px)}
-.cut{background:var(--white)}
-.cut .wrap2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
-@media(max-width:860px){.cut .wrap2,.hero .wrap{grid-template-columns:1fr}}
-.cut p.intro{margin-top:14px;max-width:40ch}
-.size{display:flex;gap:10px;margin-top:22px}
-.size button{font:900 24px var(--hd);min-width:120px;min-height:64px;border-radius:14px;border:3px solid var(--wood);background:var(--white);color:var(--wood);cursor:pointer;box-shadow:4px 4px 0 var(--wood)}
-.size button[aria-pressed=true]{background:var(--ochre)}
-.with{list-style:none;margin-top:22px;display:grid;gap:8px}
-.with li{display:flex;gap:10px;align-items:center;font-weight:700}
-.with li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--green)}
-.plate{position:relative;width:min(440px,90%);aspect-ratio:1;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#eef2f5 59% 62%,#fff 63% 70%,#dfe6eb 71%);box-shadow:0 20px 40px rgba(74,47,28,.18)}
-.plate .pork{position:absolute;left:18%;top:20%;width:46%;height:38%;border-radius:46% 54% 50% 50%/56% 48% 52% 44%;
-  background:radial-gradient(circle at 30% 30%,#e9a44c 0 8%,transparent 9%),radial-gradient(circle at 60% 55%,#d98a35 0 7%,transparent 8%),radial-gradient(circle at 45% 70%,#e2983f 0 6%,transparent 7%),linear-gradient(140deg,#e7a54d,#b8661f);
-  box-shadow:inset -6px -8px 0 rgba(120,60,10,.25);transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
-.plate.big .pork{transform:scale(1.32) translate(4%,6%)}
-.plate .puree{position:absolute;right:16%;top:24%;width:26%;height:24%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fffbe8,#f3e3a6);box-shadow:inset -4px -5px 0 rgba(0,0,0,.06)}
-.plate .kap{position:absolute;left:30%;bottom:16%;width:30%;height:18%;border-radius:50%;background:repeating-linear-gradient(115deg,#c9a24a 0 4px,#b48a32 4px 7px)}
-.plate .sal{position:absolute;right:20%;bottom:20%;width:22%;height:18%;border-radius:50%;background:repeating-linear-gradient(60deg,#c43b2f 0 5px,#6fae5a 5px 10px,#f2e7c3 10px 13px)}
-.plate .g{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%);font:900 28px var(--hd);color:var(--red)}
-.plate small{position:absolute;left:0;right:0;bottom:-66px;text-align:center;font-size:13px;opacity:.7}
+/* sekcje */
+.sec{scroll-margin-top:50px;padding:clamp(80px,12vh,130px) var(--gut) clamp(60px,10vh,110px)}
+.wrap{max-width:1220px;margin:0 auto}
+.sec h2{font-size:clamp(40px,6vw,76px);color:var(--wood)}
+.sub{color:var(--mute);max-width:52ch;margin-top:12px}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px}
+
+/* MENU */
+.menu{background:var(--white);border-top:6px solid var(--blue);position:relative}
+.menu::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:radial-gradient(circle at 11px 0,var(--blue) 0 9px,transparent 10px) 0 0/22px 22px repeat-x}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tabs button{border:2px solid var(--ink);background:var(--white);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-top:28px}
+.card{position:relative;background:var(--wall);border-radius:22px;overflow:hidden;border:2px solid #dfe6ee;display:flex;flex-direction:column;animation:cin .55s cubic-bezier(.2,1,.4,1) both}
+@keyframes cin{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.card figure{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover img{transform:scale(1.05)}
+.card figure span{position:absolute;left:10px;bottom:10px;background:rgba(29,40,54,.82);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px}
+.card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:22px;color:var(--wood)}
+.card p{font-size:15px;color:var(--mute)}
+.card .pr{position:absolute;right:12px;top:12px;background:var(--yellow);color:var(--wood);font:400 20px var(--hd);padding:8px 12px;border-radius:14px;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.card .pr small{font-family:var(--bd);font-weight:800;font-size:12px}
+.card .tag{align-self:flex-start;margin-top:8px;font-size:12px;font-weight:800;color:var(--green);background:#e3f2e6;padding:3px 9px;border-radius:999px}
+.mnote{margin-top:22px;font-size:14px;color:var(--mute)}
+
+/* REZERWACJA */
+.book{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.book .flo{position:absolute;right:-60px;top:-40px;width:340px;opacity:.95;pointer-events:none}
+.book h2{color:#fff}
+.book .sub{color:#d9e4f5}
+.bwrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:start;margin-top:10px}
+@media(max-width:900px){.bwrap{grid-template-columns:1fr}}
+.perks{list-style:none;margin-top:26px;display:grid;gap:12px}
+.perks li{display:flex;gap:12px;align-items:flex-start;font-weight:600}
+.perks svg{flex:none;width:26px;height:26px}
+.formcard{position:relative;background:var(--white);color:var(--ink);border-radius:26px;padding:clamp(18px,3vw,30px);box-shadow:8px 8px 0 var(--blue2)}
+.step{margin-top:18px}
+.step:first-child{margin-top:0}
+.step>b{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cities button{border:2px solid #d3dce7;background:var(--white);border-radius:14px;padding:10px 8px;text-align:left;cursor:pointer;transition:border-color .2s,background .2s}
+.cities button strong{display:block;font-weight:800}
+.cities button small{display:block;font-size:12px;color:var(--mute);line-height:1.3}
+.cities button[aria-pressed=true]{border-color:var(--blue);background:#eaf1fb}
+.cities button.soon strong{color:var(--mute)}
+.citynote{display:none;margin-top:8px;font-size:13px;background:#fff6dc;border-radius:10px;padding:8px 10px}
+.citynote.on{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:2px solid #d3dce7;background:var(--white);border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}}
+.fld{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--mute)}
+.fld input,.fld textarea{border:2px solid #d3dce7;border-radius:12px;padding:12px 14px;font-size:16px;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s}
+.fld input:focus,.fld textarea:focus{border-color:var(--blue)}
+.stepper{display:inline-flex;align-items:center;border:2px solid #d3dce7;border-radius:999px;overflow:hidden}
+.stepper button{width:46px;height:46px;border:0;background:var(--wall);font-size:22px;font-weight:800;cursor:pointer}
+.stepper output{min-width:110px;text-align:center;font-weight:800}
+.send{width:100%;margin-top:22px}
+.ok{position:absolute;inset:0;border-radius:26px;background:var(--white);display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:10px}
+.ok.on{display:flex;animation:cin .5s both}
+.ok h3{font-size:32px;color:var(--green)}
+.ok p{color:var(--mute);max-width:36ch}
+.ok .sum{font-weight:800;color:var(--ink);font-size:18px}
 
 /* WNĘTRZE */
-.inside{background:var(--wood);color:var(--white);position:relative;overflow:hidden}
-.inside::before{content:"";position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(90deg,transparent 0 120px,rgba(0,0,0,.6) 120px 124px),repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 3px,transparent 3px 9px)}
-.inside .wrap2{position:relative}
-.inside .kick{color:var(--ochre)}
-.inside .intro{max-width:56ch;margin-top:14px;opacity:.92}
-.candles{display:flex;gap:clamp(18px,4vw,50px);margin-top:36px;align-items:flex-end}
-.candle{position:relative;width:34px;border-radius:6px 6px 2px 2px;background:linear-gradient(90deg,#f4ead7,#e2d3b5)}
-.candle::before{content:"";position:absolute;left:50%;top:-30px;width:16px;height:26px;margin-left:-8px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6c9,#ffb43a 55%,rgba(255,120,0,0) 70%);animation:flick 1.4s ease-in-out infinite alternate;transform-origin:50% 100%}
-.candle::after{content:"";position:absolute;left:50%;top:-90px;width:140px;height:140px;margin-left:-70px;border-radius:50%;background:radial-gradient(circle,rgba(255,190,90,.35),transparent 65%);animation:flick 1.4s ease-in-out infinite alternate}
-.candle:nth-child(2)::before,.candle:nth-child(2)::after{animation-delay:.4s}.candle:nth-child(3)::before,.candle:nth-child(3)::after{animation-delay:.8s}
+.inside .grid3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:820px){.inside .grid3{grid-template-columns:1fr}}
+.slot{position:relative;min-height:300px;border-radius:22px;border:3px dashed rgba(255,220,170,.45);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;overflow:hidden;color:#fbeedd;
+  background:radial-gradient(ellipse at 70% 75%,rgba(255,170,70,.45),transparent 55%),repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 3px,transparent 3px 70px),repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 9px),linear-gradient(#6b4429,#3b2416)}
+.slot::after{content:"";position:absolute;right:28%;bottom:34%;width:14px;height:22px;margin-left:-7px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff8d6,#ffb43a 55%,rgba(255,120,0,0) 72%);animation:flick 1.3s ease-in-out infinite alternate;box-shadow:0 0 40px 18px rgba(255,170,60,.35)}
+.slot::before{content:"";position:absolute;right:28%;bottom:calc(34% - 64px);width:22px;height:62px;margin-right:-4px;border-radius:4px 4px 2px 2px;background:linear-gradient(90deg,#cdb48c,#f6e7c8 50%,#b89a6c)}
 @keyframes flick{from{transform:scale(1) rotate(-3deg);opacity:.9}to{transform:scale(1.12) rotate(3deg);opacity:1}}
-.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
-@media(max-width:760px){.feat{grid-template-columns:1fr}}
-.feat div{padding:20px;border:2px solid rgba(255,255,255,.25);border-radius:14px}
-.feat b{display:block;font:900 24px var(--hd);color:var(--ochre)}
-.ph{margin-top:14px;padding:14px;border:2px dashed rgba(255,255,255,.4);border-radius:12px;text-align:center;font-weight:700;font-size:14px}
+.slot svg{position:absolute;left:-14px;bottom:60px;width:120px;opacity:.95}
+.slot h3{font-size:26px;color:#fff;position:relative}
+.slot p{color:#e9d3b5;font-size:15px;position:relative}
+.slot em{position:absolute;left:16px;top:16px;font-style:normal;font-size:12px;font-weight:800;color:var(--blue);background:#eaf1fb;padding:5px 10px;border-radius:999px}
 
-/* ODWIEDŹ */
-.visit .wrap2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(30px,6vw,80px)}
-@media(max-width:860px){.visit .wrap2{grid-template-columns:1fr}}
-dl{display:grid;grid-template-columns:auto 1fr;gap:12px 22px;margin-top:24px}
-dt{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);padding-top:3px}
-dd{font-size:19px}
-.mapbox{border:4px solid var(--wood);border-radius:16px;overflow:hidden;box-shadow:6px 6px 0 var(--wood);min-height:380px}
-.mapbox iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
-footer{background:var(--red);color:rgba(255,255,255,.88);padding:24px var(--gut) 40px}
-footer p{max-width:90ch;font-size:13px}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+/* DOJAZD */
+.visit{background:var(--white)}
+.vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);margin-top:30px}
+@media(max-width:880px){.vgrid{grid-template-columns:1fr}}
+.hours{width:100%;border-collapse:collapse;margin-top:8px}
+.hours td{padding:11px 0;border-bottom:2px dotted #d3dce7;font-weight:600}
+.hours td:last-child{text-align:right;font-weight:800}
+.hours tr.today td{color:var(--red)}
+.contact{margin-top:22px;display:grid;gap:6px;font-size:18px}
+.map{min-height:400px;border-radius:24px;overflow:hidden;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.map iframe{width:100%;height:100%;min-height:400px;border:0;display:block}
+footer{background:var(--wood);color:#e9d9c3;padding:30px var(--gut) 44px;font-size:13px}
+footer .wrap{display:grid;gap:12px}
+footer a{color:#fff}
+.mobilebar{display:none}
+@media(max-width:820px){
+  .mobilebar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:50;transform:translateY(120%);transition:transform .35s}
+  .mobilebar.on{transform:none}
+  .mobilebar .btn{min-height:50px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  footer{padding-bottom:90px}
+}
+
+/* kwiaty */
+.fl-stem{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round}
+.grow{stroke-dasharray:var(--l,300);stroke-dashoffset:var(--l,300);animation:grow 1.6s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.bloom{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom .7s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes bloom{to{transform:scale(1)}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.spin{transform-origin:50% 50%;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,1,.4,1)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.smoke circle,.rooster,.win,.folk,.candle::before,.candle::after{animation:none}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <a class="logo" href="#start">Kurna Chata</a>
-  <nav aria-label="Menu"><a href="#schabowy">Schabowy</a><a href="#wnetrze"><span data-pl>Wnętrze</span><span data-en>Interior</span></a><a href="#odwiedz"><span data-pl>Odwiedź</span><span data-en>Visit</span></a></nav>
-  <div class="lang" role="group" aria-label="Język / Language"><button type="button" data-l="pl" aria-pressed="true">PL</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+<header class="beam">
+  <a class="sign" href="#start">Kurna Chata</a>
+  <nav aria-label="Menu"><a href="#menu">Menu</a><a href="#rezerwacja"><span data-pl>Rezerwacja</span><span data-en>Booking</span></a><a href="#wnetrze"><span data-pl>Wnętrze</span><span data-en>Interior</span></a><a href="#dojazd"><span data-pl>Dojazd</span><span data-en>Visit</span></a></nav>
+  <div class="right">
+    <a class="bk" href="#rezerwacja"><span data-pl>Zarezerwuj</span><span data-en>Book</span></a>
+    <div class="lang" role="group" aria-label="Język / Language"><button type="button" data-l="pl" aria-pressed="true">PL</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+  </div>
 </header>
 
 <section class="hero" id="start">
+  <svg class="corner tl" viewBox="0 0 300 300" aria-hidden="true" data-flowers="corner"></svg>
+  <svg class="corner br" viewBox="0 0 300 300" aria-hidden="true" data-flowers="corner"></svg>
   <div class="wrap">
     <div>
-      <div class="kick"><span data-pl>Restauracja · Wrocław, Stare Miasto</span><span data-en>Restaurant · Wrocław Old Town</span></div>
-      <h1>Kurna Chata</h1>
-      <p class="lede"><span data-pl>Polska kuchnia, w której można zjeść smacznie i w przyzwoitych cenach.</span><span data-en>Polish cuisine: tasty food at fair prices, in the heart of Wrocław.</span></p>
-      <div class="chips"><span data-pl>otwarte codziennie</span><span data-en>open daily</span><span data-pl>na miejscu i na wynos</span><span data-en>dine in and takeaway</span><span data-pl>rezerwacje</span><span data-en>reservations</span></div>
-      <div class="ctas"><a class="btn f" href="tel:+48731076569"><span data-pl>Zarezerwuj stolik</span><span data-en>Book a table</span></a><a class="btn" href="#schabowy"><span data-pl>Co zjeść</span><span data-en>What to eat</span></a></div>
+      <span class="place"><i></i><span data-pl>Wrocław · Odrzańska 24 · otwarte dziś</span><span data-en>Wrocław · Odrzańska 24 · open today</span></span>
+      <h1><span class="w">Kurna</span> <span class="w">Chata</span></h1>
+      <p class="lede"><span data-pl>Polska kuchnia jak u babci: schabowy, pierogi, golonka i żurek. Smacznie, do syta i w przyzwoitych cenach.</span><span data-en>Polish food like grandma's: pork chops, pierogi, pork knuckle and żurek. Tasty, filling and fairly priced.</span></p>
+      <div class="ctas"><a class="btn r" href="#rezerwacja"><span data-pl>Zarezerwuj stolik online</span><span data-en>Book a table online</span></a><a class="btn" href="#menu"><span data-pl>Zobacz menu</span><span data-en>See the menu</span></a></div>
+      <div class="stars"><b>785</b><span data-pl>opinii gości na Facebooku</span><span data-en>guest reviews on Facebook</span></div>
     </div>
-    <svg class="scene" viewBox="0 0 640 420" role="img" aria-label="Rysunek: drewniana chata z dymiącym kominem i kogut">
-      <ellipse cx="320" cy="410" rx="330" ry="40" fill="#7bb26b"/>
-      <g class="smoke"><circle cx="400" cy="70" r="14"/><circle cx="400" cy="70" r="12"/><circle cx="400" cy="70" r="16"/></g>
-      <rect x="388" y="70" width="26" height="70" fill="#8a5a3a"/>
-      <path d="M150 210 L320 80 L490 210 Z" fill="#c9a24a" stroke="#4a2f1c" stroke-width="6" stroke-linejoin="round"/>
-      <path d="M190 190 L320 95 L450 190" fill="none" stroke="#b48a32" stroke-width="4"/>
-      <rect x="175" y="205" width="290" height="175" fill="#8a5a3a" stroke="#4a2f1c" stroke-width="6"/>
-      <g stroke="#6b4429" stroke-width="3"><path d="M175 235H465M175 265H465M175 295H465M175 325H465M175 355H465"/></g>
-      <rect x="290" y="270" width="60" height="110" rx="4" fill="#4a2f1c"/>
-      <circle cx="338" cy="328" r="4" fill="#e8a628"/>
-      <rect class="win" x="205" y="250" width="60" height="50" rx="4" fill="#f6c453" stroke="#4a2f1c" stroke-width="5"/>
-      <rect class="win" x="375" y="250" width="60" height="50" rx="4" fill="#f6c453" stroke="#4a2f1c" stroke-width="5"/>
-      <path d="M235 250V300M205 275H265M405 250V300M375 275H435" stroke="#4a2f1c" stroke-width="4"/>
-      <g class="rooster">
-        <path d="M470 380 q-10-40 20-60 q30-10 40 20 q5 25-20 40 z" fill="#b3261e" stroke="#4a2f1c" stroke-width="4"/>
-        <path d="M465 370 q-35-20-30-55 q20 10 30 40" fill="#2f6b3a" stroke="#4a2f1c" stroke-width="4"/>
-        <circle cx="508" cy="318" r="14" fill="#e8a628" stroke="#4a2f1c" stroke-width="4"/>
-        <path d="M500 304 q6-14 14-2 q6-10 12 4" fill="#e0473b" stroke="#4a2f1c" stroke-width="3"/>
-        <path d="M520 318 l14 4 l-14 4z" fill="#e8a628" stroke="#4a2f1c" stroke-width="3"/>
-        <circle cx="512" cy="315" r="2.5" fill="#4a2f1c"/>
-        <path d="M488 400 v-20 M500 400 v-20" stroke="#4a2f1c" stroke-width="4"/>
-      </g>
-    </svg>
+    <div class="dish">
+      <svg class="wreath" viewBox="0 0 520 520" aria-hidden="true" id="wreath"></svg>
+      <div class="ph"><img src="img/schabowy.jpg" alt="Schabowy z puree i kapustą zasmażaną" width="900" height="900"></div>
+      <div class="price-stamp"><div><small><span data-pl>SCHABOWY</span><span data-en>PORK CHOP</span></small><b>39 zł</b><small>180 g</small></div></div>
+      <span class="note"><span data-pl>Zdjęcie przykładowe · tu będzie Państwa schabowy</span><span data-en>Sample photo · your dish goes here</span></span>
+    </div>
   </div>
 </section>
-<div class="folk" aria-hidden="true"></div>
+
+<div class="quick">
+  <form id="quick" aria-label="Szybka rezerwacja">
+    <label><span data-pl>Lokal</span><span data-en>Place</span><select id="qCity"><option value="wro">Wrocław</option><option value="m2" data-pl>Miasto 2</option><option value="m3">Miasto 3</option></select></label>
+    <label><span data-pl>Data</span><span data-en>Date</span><input id="qDate" inputmode="numeric" placeholder="np. 12.12.2026"></label>
+    <label><span data-pl>Godzina</span><span data-en>Time</span><select id="qTime"></select></label>
+    <label><span data-pl>Osoby</span><span data-en>Guests</span><select id="qPpl"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10+</option></select></label>
+    <button class="btn r" type="submit"><span data-pl>Dalej</span><span data-en>Next</span></button>
+  </form>
+</div>
 
 <main>
-<section class="sec cut" id="schabowy">
-  <div class="wrap2">
-    <div class="rv">
-      <div class="kick"><span data-pl>Na mały i duży głód</span><span data-en>For any appetite</span></div>
-      <h2><span data-pl>Schabowy w dwóch rozmiarach</span><span data-en>Pork chop, two sizes</span></h2>
-      <p class="intro"><span data-pl>Klasyczny, wyśmienity schabowy. Wybierz rozmiar:</span><span data-en>Our classic Polish pork chop. Pick your size:</span></p>
-      <div class="size" role="group" aria-label="Rozmiar / Size"><button type="button" data-g="180" aria-pressed="true">180 g</button><button type="button" data-g="300" aria-pressed="false">300 g</button></div>
-      <ul class="with">
-        <li><span data-pl>puszyste puree ziemniaczane</span><span data-en>creamy mashed potatoes</span></li>
-        <li><span data-pl>zestaw świeżych surówek</span><span data-en>fresh salads</span></li>
-        <li><span data-pl>domowa kapusta zasmażana</span><span data-en>warm braised sauerkraut</span></li>
-      </ul>
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2>Menu</h2>
+        <p class="sub"><span data-pl>Domowe porcje, robione na miejscu. Wybierz kategorię:</span><span data-en>Home-style portions, made in-house. Pick a category:</span></p>
+      </div>
     </div>
-    <div class="plate rv" id="plate" aria-hidden="true"><span class="pork"></span><span class="puree"></span><span class="kap"></span><span class="sal"></span><span class="g" id="g">180 g</span><small><span data-pl>Rysunek. Tu będzie zdjęcie Państwa schabowego.</span><span data-en>Illustration. Your dish photo goes here.</span></small></div>
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-c="main" aria-selected="true"><span data-pl>Dania główne</span><span data-en>Mains</span></button>
+      <button role="tab" data-c="pier" aria-selected="false">Pierogi</button>
+      <button role="tab" data-c="soup" aria-selected="false"><span data-pl>Zupy</span><span data-en>Soups</span></button>
+      <button role="tab" data-c="sweet" aria-selected="false"><span data-pl>Desery</span><span data-en>Desserts</span></button>
+    </div>
+    <div class="grid" id="grid" role="tabpanel"></div>
+    <p class="mnote"><span data-pl>Zdjęcia i ceny są przykładowe: wstawimy Państwa zdjęcia dań i aktualny cennik.</span><span data-en>Photos and prices are samples: we'll put in your own dish photos and current prices.</span></p>
+  </div>
+</section>
+
+<section class="sec book" id="rezerwacja">
+  <svg class="flo" viewBox="0 0 300 300" aria-hidden="true" data-flowers="corner" data-white="1"></svg>
+  <div class="wrap">
+    <div class="bwrap">
+      <div class="rv">
+        <h2><span data-pl>Rezerwacja stolika</span><span data-en>Book a table</span></h2>
+        <p class="sub"><span data-pl>Bez dzwonienia: wybierz lokal, dzień i godzinę. Potwierdzenie przyjdzie SMS-em.</span><span data-en>No phone call needed: pick a place, day and time. You'll get an SMS confirmation.</span></p>
+        <ul class="perks">
+          <li><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#f3b21c"/><path d="M7 13.5l4 4 8-9" fill="none" stroke="#3b2416" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-pl>trzy lokale w jednym miejscu: wybierz miasto</span><span data-en>all locations in one place: pick a city</span></li>
+          <li><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#f3b21c"/><path d="M7 13.5l4 4 8-9" fill="none" stroke="#3b2416" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-pl>urodziny i większe grupy: napisz w uwagach</span><span data-en>birthdays and groups: add a note</span></li>
+          <li><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#f3b21c"/><path d="M7 13.5l4 4 8-9" fill="none" stroke="#3b2416" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-pl>wolisz zadzwonić? <a href="tel:+48731076569">731 076 569</a></span><span data-en>prefer calling? <a href="tel:+48731076569">+48 731 076 569</a></span></li>
+        </ul>
+      </div>
+      <form class="formcard rv" id="book" novalidate>
+        <div class="step"><b><span data-pl>1. Lokal</span><span data-en>1. Location</span></b>
+          <div class="cities" id="cities">
+            <button type="button" data-city="wro" aria-pressed="true"><strong>Wrocław</strong><small>Odrzańska 24</small></button>
+            <button type="button" class="soon" data-city="m2" aria-pressed="false"><strong><span data-pl>Miasto 2</span><span data-en>City 2</span></strong><small><span data-pl>miejsce na lokal</span><span data-en>space for a venue</span></small></button>
+            <button type="button" class="soon" data-city="m3" aria-pressed="false"><strong><span data-pl>Miasto 3</span><span data-en>City 3</span></strong><small><span data-pl>miejsce na lokal</span><span data-en>space for a venue</span></small></button>
+          </div>
+          <p class="citynote" id="citynote"><span data-pl>Tu pojawi się kolejny lokal Kurna Chata: własny adres, menu i rezerwacje, wszystko na jednej stronie.</span><span data-en>Another Kurna Chata venue can go here: its own address, menu and bookings, all on one site.</span></p>
+        </div>
+        <div class="step"><b><span data-pl>2. Dzień</span><span data-en>2. Day</span></b>
+          <div class="chips" id="days"></div>
+          <div class="fld" style="margin-top:8px"><input id="bDate" inputmode="numeric" placeholder="np. 12.12.2026" aria-label="Data"></div>
+        </div>
+        <div class="step"><b><span data-pl>3. Godzina</span><span data-en>3. Time</span></b><div class="chips" id="times"></div></div>
+        <div class="step"><b><span data-pl>4. Liczba osób</span><span data-en>4. Guests</span></b>
+          <div class="stepper"><button type="button" id="minus" aria-label="mniej">−</button><output id="ppl">2 <span data-pl>osoby</span><span data-en>guests</span></output><button type="button" id="plus" aria-label="więcej">+</button></div>
+        </div>
+        <div class="step row2">
+          <label class="fld"><span data-pl>Imię</span><span data-en>Name</span><input id="bName" autocomplete="name"></label>
+          <label class="fld"><span data-pl>Telefon</span><span data-en>Phone</span><input id="bTel" type="tel" autocomplete="tel" placeholder="+48"></label>
+        </div>
+        <div class="step"><label class="fld"><span data-pl>Uwagi (opcjonalnie)</span><span data-en>Notes (optional)</span><textarea id="bNote" rows="2"></textarea></label></div>
+        <button class="btn r send" type="submit"><span data-pl>Zarezerwuj stolik</span><span data-en>Book the table</span></button>
+        <div class="ok" id="ok" role="status">
+          <svg viewBox="0 0 80 80" width="80" height="80" aria-hidden="true"><circle cx="40" cy="40" r="36" fill="#e3f2e6"/><path d="M24 41l11 11 21-24" fill="none" stroke="#3a8a4a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="grow" style="--l:60"/></svg>
+          <h3><span data-pl>Dziękujemy!</span><span data-en>Thank you!</span></h3>
+          <p class="sum" id="sum"></p>
+          <p><span data-pl>To wersja pokazowa: w gotowej stronie rezerwacja trafi do restauracji, a gość dostanie SMS z potwierdzeniem.</span><span data-en>This is a demo: on the real site the booking goes to the restaurant and the guest gets an SMS.</span></p>
+          <button type="button" class="btn" id="again"><span data-pl>Nowa rezerwacja</span><span data-en>New booking</span></button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 
 <section class="sec inside" id="wnetrze">
-  <div class="wrap2 rv">
-    <div class="kick"><span data-pl>Wnętrze</span><span data-en>Interior</span></div>
-    <h2><span data-pl>Domowe ciepło od progu</span><span data-en>Homely warmth from the door</span></h2>
-    <p class="intro"><span data-pl>Solidne drewniane meble, blask świec i drewniane rzeźby z duszą. Prawdziwa polska gościnność w sercu Wrocławia.</span><span data-en>Solid wooden furniture, warm candlelight and wooden sculptures full of character. Authentic Polish hospitality in the heart of Wrocław.</span></p>
-    <div class="candles" aria-hidden="true"><span class="candle" style="height:90px"></span><span class="candle" style="height:130px"></span><span class="candle" style="height:70px"></span></div>
-    <div class="feat">
-      <div><b><span data-pl>Drewno</span><span data-en>Wood</span></b><span data-pl>solidne drewniane meble</span><span data-en>solid wooden furniture</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie sali</span><span data-en>Your photo goes here</span></div></div>
-      <div><b><span data-pl>Świece</span><span data-en>Candles</span></b><span data-pl>wieczorem w blasku świec</span><span data-en>evenings by candlelight</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie wieczoru</span><span data-en>Your photo goes here</span></div></div>
-      <div><b><span data-pl>Rzeźby</span><span data-en>Carvings</span></b><span data-pl>drewniane rzeźby z charakterem</span><span data-en>wooden carvings with character</span><div class="ph"><span data-pl>Tu będzie Państwa zdjęcie rzeźb</span><span data-en>Your photo goes here</span></div></div>
+  <div class="wrap">
+    <div class="rv">
+      <h2><span data-pl>Jak w prawdziwej chacie</span><span data-en>Like a real country hut</span></h2>
+      <p class="sub"><span data-pl>Solidne drewniane meble, blask świec i drewniane rzeźby z duszą. Prawdziwa polska gościnność w sercu Wrocławia.</span><span data-en>Solid wooden furniture, candlelight and wooden carvings with soul. Real Polish hospitality in the heart of Wrocław.</span></p>
+    </div>
+    <div class="grid3">
+      <div class="slot rv"><em><span data-pl>Tu będzie zdjęcie sali</span><span data-en>Dining room photo here</span></em><svg viewBox="0 0 300 300" aria-hidden="true" data-flowers="single"></svg><h3><span data-pl>Drewno</span><span data-en>Wood</span></h3><p><span data-pl>ciężkie stoły i ławy</span><span data-en>heavy tables and benches</span></p></div>
+      <div class="slot rv"><em><span data-pl>Tu będzie zdjęcie wieczoru</span><span data-en>Evening photo here</span></em><svg viewBox="0 0 300 300" aria-hidden="true" data-flowers="single"></svg><h3><span data-pl>Świece</span><span data-en>Candles</span></h3><p><span data-pl>wieczorem na stołach</span><span data-en>on the tables at night</span></p></div>
+      <div class="slot rv"><em><span data-pl>Tu będzie zdjęcie rzeźb</span><span data-en>Carvings photo here</span></em><svg viewBox="0 0 300 300" aria-hidden="true" data-flowers="single"></svg><h3><span data-pl>Rzeźby</span><span data-en>Carvings</span></h3><p><span data-pl>drewniane figury z charakterem</span><span data-en>wooden figures with character</span></p></div>
     </div>
   </div>
 </section>
 
-<section class="sec visit" id="odwiedz">
-  <div class="wrap2">
-    <div class="rv">
-      <div class="kick"><span data-pl>Zapraszamy codziennie</span><span data-en>Open daily</span></div>
-      <h2><span data-pl>Odrzańska 24</span><span data-en>Odrzańska 24</span></h2>
-      <dl>
-        <dt><span data-pl>Adres</span><span data-en>Address</span></dt><dd>Odrzańska 24-29<br>50-114 Wrocław</dd>
-        <dt><span data-pl>Rezerwacje</span><span data-en>Bookings</span></dt><dd><a href="tel:+48731076569">+48 731 076 569</a></dd>
-        <dt>E-mail</dt><dd><a href="mailto:krol.schabowego@gmail.com">krol.schabowego@gmail.com</a></dd>
-        <dt>Social</dt><dd><a href="https://www.facebook.com/KurnaChataWroclaw" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/kurna_chata_wro/" rel="noopener">Instagram</a></dd>
-      </dl>
-      <div class="ctas" style="margin-bottom:0"><a class="btn f" href="tel:+48731076569"><span data-pl>Zadzwoń i zarezerwuj</span><span data-en>Call to book</span></a></div>
+<section class="sec visit" id="dojazd">
+  <div class="wrap">
+    <div class="rv"><h2><span data-pl>Wpadnij do nas</span><span data-en>Come visit</span></h2></div>
+    <div class="vgrid">
+      <div class="rv">
+        <table class="hours" id="hours">
+          <tr data-d="1,2,3,4"><td><span data-pl>Poniedziałek – czwartek</span><span data-en>Monday – Thursday</span></td><td>8:00 – 22:00</td></tr>
+          <tr data-d="5,6"><td><span data-pl>Piątek – sobota</span><span data-en>Friday – Saturday</span></td><td>8:00 – 24:00</td></tr>
+          <tr data-d="0"><td><span data-pl>Niedziela</span><span data-en>Sunday</span></td><td>8:00 – 21:00</td></tr>
+        </table>
+        <div class="contact">
+          <span>Odrzańska 24-29, 50-114 Wrocław</span>
+          <a href="tel:+48731076569">+48 731 076 569</a>
+          <a href="mailto:krol.schabowego@gmail.com">krol.schabowego@gmail.com</a>
+          <span><a href="https://www.facebook.com/KurnaChataWroclaw" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/kurna_chata_wro/" rel="noopener">Instagram</a></span>
+        </div>
+        <div class="ctas"><a class="btn y" href="https://www.openstreetmap.org/?mlat=51.1125265&amp;mlon=17.0313081#map=18/51.1125/17.0313" rel="noopener"><span data-pl>Wyznacz trasę</span><span data-en>Directions</span></a></div>
+      </div>
+      <div class="map rv"><iframe title="Mapa: Kurna Chata, Odrzańska 24, Wrocław" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=17.0250%2C51.1095%2C17.0375%2C51.1155&amp;layer=mapnik&amp;marker=51.1125265%2C17.0313081"></iframe></div>
     </div>
-    <div class="mapbox rv"><iframe title="Mapa: Kurna Chata, Odrzańska 24, Wrocław" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=17.0230%2C51.1090%2C17.0395%2C51.1160&amp;layer=mapnik&amp;marker=51.1125265%2C17.0313081"></iframe></div>
   </div>
 </section>
 </main>
 
 <footer>
-  <p data-pl>To makieta nowej strony. Rysunki chaty i talerza są poglądowe, w ich miejscu pojawią się prawdziwe zdjęcia dań i wnętrza, za zgodą właścicieli. Opis, schabowy, wnętrze, adres i kontakt pochodzą z facebookowej strony Kurna Chata.</p>
-  <p data-en>This is a demo of a new website. The drawings are placeholders for real photos of the dishes and interior, with the owners' consent. Descriptions, the pork chop, interior, address and contacts come from the Kurna Chata Facebook page.</p>
+  <div class="wrap">
+    <p data-pl>To makieta nowej strony Kurna Chata. Zdjęcia dań są przykładowe (Wikimedia Commons), ceny i dwa dodatkowe lokale to miejsca do uzupełnienia. Opisy, adres i kontakt pochodzą ze strony Kurna Chata na Facebooku. Rezerwacja działa pokazowo i niczego nie wysyła.</p>
+    <p data-en>This is a demo of a new Kurna Chata website. Dish photos are samples (Wikimedia Commons); prices and the two extra locations are placeholders. Descriptions, address and contacts come from the Kurna Chata Facebook page. The booking form is a demo and sends nothing.</p>
+    <p style="opacity:.75"><span data-pl>Zdjęcia:</span><span data-en>Photos:</span> Abraham (CC BY-SA 4.0), Dmitry Dzema (CC BY-SA 4.0), MOs810 (CC BY-SA 4.0), Aw58 (CC BY 4.0 / CC BY-SA 4.0), Ken Eckert (CC BY-SA 4.0), Jason Quinn &amp; Anna Iwanicka (CC BY-SA 3.0), Colin Cameron (CC BY-SA 2.0), W.carter (CC0), via Wikimedia Commons.</p>
+  </div>
 </footer>
+
+<div class="mobilebar" id="mbar"><a class="btn r" href="#rezerwacja"><span data-pl>Rezerwuj</span><span data-en>Book</span></a><a class="btn" href="tel:+48731076569"><span data-pl>Zadzwoń</span><span data-en>Call</span></a></div>
 
 <script>
 (function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,NS='http://www.w3.org/2000/svg';
 /* PL / EN */
 var bs=document.querySelectorAll('.lang button');
-function setL(l){document.documentElement.lang=l;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});try{localStorage.setItem('kc-lang',l)}catch(e){}}
+function L(){return document.documentElement.lang}
+function setL(l){document.documentElement.lang=l;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});try{localStorage.setItem('kc-lang',l)}catch(e){};renderMenu(cur,true);renderPpl()}
 bs.forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
-try{var s=localStorage.getItem('kc-lang');if(s)setL(s)}catch(e){}
-/* rozmiar schabowego */
-var plate=document.getElementById('plate'),g=document.getElementById('g'),sz=document.querySelectorAll('.size button');
-sz.forEach(function(b){b.onclick=function(){sz.forEach(function(x){x.setAttribute('aria-pressed',x===b)});plate.classList.toggle('big',b.dataset.g==='300');g.textContent=b.dataset.g+' g'}});
+
+/* --- kwiaty z Zalipia --- */
+var COL=['#c8322b','#2c5aa0','#f3b21c','#d9467a','#c8322b'];
+function flower(cx,cy,r,col,delay,kind){
+  var g='<g class="sway" style="animation-delay:'+(-Math.random()*5).toFixed(2)+'s"><g class="bloom" style="animation-delay:'+delay+'s">';
+  var n=kind===1?5:8;
+  for(var i=0;i<n;i++){var a=i*360/n;
+    g+=kind===1?'<path d="M'+cx+' '+cy+'c'+(-r*.55)+' '+(-r*.4)+' '+(-r*.45)+' '+(-r*1.15)+' 0 '+(-r*1.2)+'c'+(r*.45)+' '+(r*.05)+' '+(r*.55)+' '+(r*.8)+' 0 '+(r*1.2)+'z" fill="'+col+'" transform="rotate('+a+' '+cx+' '+cy+')"/>'
+              :'<ellipse cx="'+cx+'" cy="'+(cy-r*.62)+'" rx="'+(r*.28)+'" ry="'+(r*.5)+'" fill="'+col+'" transform="rotate('+a+' '+cx+' '+cy+')"/>';}
+  g+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*.34)+'" fill="#f3b21c" stroke="#fff" stroke-width="2"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(r*.13)+'" fill="#3b2416"/></g></g>';
+  return g}
+function leaf(x,y,ang,s,delay,col){return '<g class="bloom" style="animation-delay:'+delay+'s"><path d="M'+x+' '+y+'c'+(8*s)+' '+(-10*s)+' '+(24*s)+' '+(-10*s)+' '+(32*s)+' 0c'+(-8*s)+' '+(10*s)+' '+(-24*s)+' '+(10*s)+' '+(-32*s)+' 0z" fill="'+(col||'#3a8a4a')+'" transform="rotate('+ang+' '+x+' '+y+')"/></g>'}
+function corner(white){
+  var h='',st=white?'#ffffff':'#3a8a4a';
+  h+='<path class="fl-stem grow" style="--l:420;stroke:'+st+'" d="M10 290C60 220 70 150 150 120S250 60 290 10"/>';
+  h+='<path class="fl-stem grow" style="--l:200;animation-delay:.4s;stroke:'+st+'" d="M95 175C70 130 40 110 20 60"/>';
+  h+='<path class="fl-stem grow" style="--l:200;animation-delay:.6s;stroke:'+st+'" d="M200 95C220 140 250 160 290 170"/>';
+  var lc=white?'#9fc0ef':null;
+  h+=leaf(40,250,-60,1.2,.6,lc)+leaf(120,135,-20,1.1,.8,lc)+leaf(230,70,-40,1,1,lc)+leaf(60,120,-110,.9,1.1,lc)+leaf(240,150,10,.9,1.2,lc);
+  h+=flower(150,120,34,white?'#f3b21c':'#c8322b',1.1,0)+flower(20,60,24,white?'#ffffff':'#2c5aa0',1.4,1)+flower(290,170,22,white?'#ffffff':'#d9467a',1.6,1)+flower(290,10,26,white?'#c8322b':'#f3b21c',1.8,0);
+  return h}
+document.querySelectorAll('[data-flowers=corner]').forEach(function(s){s.innerHTML=corner(!!s.dataset.white)});
+document.querySelectorAll('[data-flowers=single]').forEach(function(s,i){
+  s.innerHTML='<path class="fl-stem grow" style="--l:260" d="M150 290C150 220 170 160 150 110"/>'+leaf(150,220,-150,1.3,.4)+leaf(155,180,-20,1.2,.6)+flower(150,100,44,COL[i%COL.length],.9,i%2)});
+/* wianek wokół talerza */
+(function(){var w=document.getElementById('wreath'),h='<g class="spin">',N=16;
+  for(var i=0;i<N;i++){var a=i/N*Math.PI*2,x=260+Math.cos(a)*238,y=260+Math.sin(a)*238,deg=a*180/Math.PI+90;
+    if(i%2===0)h+=flower(+x.toFixed(1),+y.toFixed(1),i%4===0?26:20,COL[(i/2)%COL.length],.6+i*.06,(i/2)%2);
+    else h+=leaf(+x.toFixed(1),+y.toFixed(1),deg-20,1,.6+i*.06)+leaf(+x.toFixed(1),+y.toFixed(1),deg+160,1,.65+i*.06)}
+  w.innerHTML=h+'</g>'})();
+
+/* --- menu --- */
+var M={
+ main:[
+  {img:'schabowy-2',pl:['Schabowy 180 g','z puree, surówkami i kapustą zasmażaną'],en:['Pork chop 180 g','with mash, salads and braised cabbage'],p:39,t:['hit lokalu','house favourite']},
+  {img:'schabowy',pl:['Schabowy 300 g','duży, na prawdziwy głód'],en:['Pork chop 300 g','large, for a real appetite'],p:49},
+  {img:'golonka',pl:['Golonka','z ziemniakami i kapustą kiszoną'],en:['Pork knuckle','with potatoes and sauerkraut'],p:54,t:['duża porcja','big portion']},
+  {img:'placki',pl:['Placki po węgiersku','placki ziemniaczane z gulaszem i śmietaną'],en:['Hungarian-style pancakes','potato pancakes with goulash and sour cream'],p:38},
+  {img:'golabki',pl:['Gołąbki','w sosie pomidorowym'],en:['Cabbage rolls','in tomato sauce'],p:34},
+  {img:'bigos',pl:['Bigos','z kiełbasą i grzybami'],en:['Hunter\'s stew','with sausage and mushrooms'],p:29}],
+ pier:[
+  {img:'pierogi-ruskie',pl:['Pierogi ruskie','z ziemniakami i serem, ze skwarkami'],en:['Pierogi ruskie','potato and cheese, with crackling'],p:29,t:['wegetariańskie','vegetarian']},
+  {img:'pierogi-mieso',pl:['Pierogi z mięsem','z cebulką'],en:['Meat pierogi','with fried onion'],p:31}],
+ soup:[
+  {img:'zurek',pl:['Żurek','na zakwasie, z jajkiem i kiełbasą'],en:['Żurek','sour rye soup with egg and sausage'],p:24,t:['polecamy','recommended']}],
+ sweet:[
+  {img:'szarlotka',pl:['Szarlotka','na ciepło, z lodami'],en:['Apple cake','warm, with ice cream'],p:19}]
+};
+var grid=document.getElementById('grid'),cur='main';
+function renderMenu(c,quiet){cur=c;var l=L()==='en'?'en':'pl',h='';
+  M[c].forEach(function(d,i){var t=d[l];
+    h+='<article class="card" style="animation-delay:'+(quiet?0:i*.07)+'s"><figure><img src="img/'+d.img+'.jpg" alt="'+t[0]+'" width="720" height="540" loading="lazy"><span>'+(l==='pl'?'zdjęcie przykładowe':'sample photo')+'</span></figure>'+
+       '<div class="pr">'+d.p+' <small>zł</small></div><div class="bd"><h3>'+t[0]+'</h3><p>'+t[1]+'</p>'+(d.t?'<span class="tag">'+d.t[l==='pl'?0:1]+'</span>':'')+'</div></article>'});
+  grid.innerHTML=h}
+document.querySelectorAll('#tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});renderMenu(b.dataset.c)}});
+
+/* --- rezerwacja --- */
+function pad(n){return (n<10?'0':'')+n}
+function fmt(d){return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()}
+var TIMES=['12:00','13:00','14:00','15:00','17:00','18:00','19:00','20:00','21:00'];
+var qT=document.getElementById('qTime');TIMES.forEach(function(t){var o=document.createElement('option');o.textContent=t;if(t==='18:00')o.selected=true;qT.appendChild(o)});
+var DN={pl:['niedz.','pon.','wt.','śr.','czw.','pt.','sob.'],en:['Sun','Mon','Tue','Wed','Thu','Fri','Sat']};
+var st={city:'wro',date:fmt(new Date()),time:'18:00',ppl:2};
+var days=document.getElementById('days'),bDate=document.getElementById('bDate');
+function renderDays(){var h='',now=new Date(),l=L()==='en'?'en':'pl';
+  for(var i=0;i<5;i++){var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i),f=fmt(d);
+    var lab=i===0?(l==='pl'?'Dziś':'Today'):i===1?(l==='pl'?'Jutro':'Tomorrow'):DN[l][d.getDay()]+' '+d.getDate();
+    h+='<button type="button" data-d="'+f+'" aria-pressed="'+(st.date===f)+'">'+lab+'</button>'}
+  days.innerHTML=h;bDate.value=st.date;
+  days.querySelectorAll('button').forEach(function(b){b.onclick=function(){st.date=b.dataset.d;renderDays()}})}
+bDate.oninput=function(){st.date=bDate.value;days.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.d===st.date)})};
+var times=document.getElementById('times');
+function renderTimes(){times.innerHTML=TIMES.map(function(t){return '<button type="button" aria-pressed="'+(st.time===t)+'">'+t+'</button>'}).join('');
+  times.querySelectorAll('button').forEach(function(b){b.onclick=function(){st.time=b.textContent;renderTimes()}})}
+var ppl=document.getElementById('ppl');
+function renderPpl(){var l=L()==='en';ppl.textContent=st.ppl+' '+(l?(st.ppl===1?'guest':'guests'):(st.ppl===1?'osoba':st.ppl<5?'osoby':'osób'));renderDays()}
+document.getElementById('minus').onclick=function(){if(st.ppl>1){st.ppl--;renderPpl()}};
+document.getElementById('plus').onclick=function(){if(st.ppl<30){st.ppl++;renderPpl()}};
+var cnote=document.getElementById('citynote'),cities=document.querySelectorAll('#cities button');
+function setCity(c){st.city=c;cities.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.city===c)});cnote.classList.toggle('on',c!=='wro');document.getElementById('qCity').value=c}
+cities.forEach(function(b){b.onclick=function(){setCity(b.dataset.city)}});
+document.getElementById('quick').onsubmit=function(e){e.preventDefault();
+  setCity(document.getElementById('qCity').value);var qd=document.getElementById('qDate').value.trim();if(qd)st.date=qd;
+  st.time=qT.value;var p=document.getElementById('qPpl').value;st.ppl=parseInt(p,10)||2;renderTimes();renderPpl();
+  document.getElementById('rezerwacja').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){document.getElementById('bName').focus({preventScroll:true})},700)};
+var form=document.getElementById('book'),ok=document.getElementById('ok');
+form.onsubmit=function(e){e.preventDefault();var n=document.getElementById('bName'),t=document.getElementById('bTel'),bad=false;
+  [n,t].forEach(function(x){var v=x.value.trim().length>(x===t?6:1);x.style.borderColor=v?'':'#c8322b';if(!v)bad=true});
+  if(bad){(n.value.trim().length>1?t:n).focus();return}
+  var city=st.city==='wro'?'Wrocław, Odrzańska 24':(L()==='en'?'City ':'Miasto ')+st.city.slice(1);
+  document.getElementById('sum').textContent=city+' · '+st.date+' · '+st.time+' · '+ppl.textContent;
+  ok.classList.add('on')};
+document.getElementById('again').onclick=function(){ok.classList.remove('on')};
+
+/* godziny: dziś */
+var dw=new Date().getDay();document.querySelectorAll('#hours tr').forEach(function(r){if(r.dataset.d.split(',').indexOf(String(dw))>-1)r.classList.add('today')});
+
+/* pasek mobilny */
+var mbar=document.getElementById('mbar');addEventListener('scroll',function(){mbar.classList.toggle('on',scrollY>innerHeight*.8)},{passive:true});
+
+try{var s=localStorage.getItem('kc-lang');if(s&&s!=='pl'){document.documentElement.lang=s;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===s)})}}catch(e){}
+renderMenu('main');renderTimes();renderPpl();
+
+/* pojawianie */
 var els=document.querySelectorAll('.rv');
-if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+if(!('IntersectionObserver' in window)||reduce){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 els.forEach(function(e){io.observe(e)});
 })();
